@@ -28,3 +28,18 @@
 .post_comments {
     padding: 20px;
 }
+
+.post_header{
+    display:flex ;
+    align-items: center;
+    padding: 20px;
+}
+
+.post_headerInfo{ 
+    display:flex ;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-left: 10px;
+}
