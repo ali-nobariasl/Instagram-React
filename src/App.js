@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Avatar, Button} from "@material-ui/core";
 import './App.css';
 import Post from './Post';
 
@@ -9,6 +10,8 @@ const BASE_URL = 'http://localhost:8000/'
 function App() {
 
   const [posts, setPost] = useState([]);
+  const [OpenSignIn, setOpenSignIn ] = useState(false);
+  const [OpenSignUp, setOpenSignUp] = useState(false);
 
   useEffect(() => {
     fetch(BASE_URL+'post/get_all')
@@ -40,12 +43,24 @@ function App() {
   },[])
 
   return (
-    <div className='app_posts'>
-      {
-        posts.map(post =>(
-          <Post post= {post} />
-        ))
-      }
+    <div className="app">
+      
+      <div className="app_header">
+        <img className="app_headerImage" src="" alt="instagram" />
+      </div>
+      <div>
+        <Button onClick={() => setOpenSignIn(true)}>Login</Button>
+        <Button onClick={() => setOpenSignUp(true)}>Signup</Button>
+
+      </div>
+
+      <div className='app_posts'>
+        {
+          posts.map(post =>(
+            <Post post= {post} />
+          ))
+        }
+      </div>
     </div>
 
   );
